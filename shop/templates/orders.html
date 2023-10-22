@@ -1,0 +1,55 @@
+<head>
+  <title>訂單 | 泰昇服飾</title>
+</head>
+{% extends 'base.html' %} {% block content %} {% load cart %} {% load custom %}
+<div class="container">
+  <div class="border rounded p-4 m-4">
+    <center><p class="display-4 pl-4 ml-4">你的訂單</p></center>
+    <div style="overflow-x: auto"></div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>序列號</th>
+          <th>圖片</th>
+          <th>產品名稱</th>
+          <th>下訂時間</th>
+          <th>單價</th>
+          <th>數量</th>
+          <th>總價</th>
+          <th>訂單編號</th>
+          <th>訂單狀態</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for order in orders %}
+        <tr>
+          <td>{{forloop.counter}}</td>
+          <td>
+            <img
+              style="height: 80px"
+              class="rounded-circle"
+              src="{{order.product.image.url}}"
+              alt=""
+            />
+          </td>
+          <td>{{order.product.name}}</td>
+          <td>{{order.order_date}}</td>
+          <td>{{order.price|currency}}</td>
+          <td>{{order.quantity}}</td>
+          <td>{{order.quantity|multiply:order.price|currency}}</td>
+          <td>{{order.order_id}}</td>
+          {% if order.order_status %}
+          <td><small class="badge badge-success">訂單已完成</small></td>
+          {%else%}
+          <td><small class="badge badge-warning">訂單處理中</small></td>
+          {% endif %}
+        </tr>
+
+        {% endfor %}
+      </tbody>
+    </table>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
