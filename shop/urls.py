@@ -1,18 +1,3 @@
-"""BuyNow URL Configuration
-
-The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/3.1/topics/http/urls/
-Examples:
-Function views
-    1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  path('', views.home, name='home')
-Class-based views
-    1. Add an import:  from other_app.views import Home
-    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
-Including another URLconf
-    1. Import the include() function: from django.urls import include, path
-    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
-"""
 
 from django.urls import path
 from .views.index import Index
@@ -22,6 +7,9 @@ from .views.cart import Cart
 from .views.checkout import Checkout, clear_cart
 from .views.orders import Orders
 from shop.middlewares.auth import auth_middleware
+from .views.orders import get_all_orders
+from .views.orders import update_order_status
+from .views.orders import create_product
 
 urlpatterns = [
     path('', Index.as_view(), name="index"),
@@ -31,5 +19,8 @@ urlpatterns = [
     path('cart/',auth_middleware(Cart.as_view()), name="cart"),
     path('checkout/', Checkout.as_view(), name="checkout"),
     path('clear/', clear_cart, name="clear"),
+    path('all-orders/', get_all_orders, name='get_all_orders'),
+    path('update-order-status/', update_order_status, name='update_order_status'),
+    path('create-product/', create_product, name='create_product'),
     path('orders/',auth_middleware( Orders.as_view()), name="orders")
 ]

@@ -19,6 +19,8 @@ class Customer(models.Model):
             return Customer.objects.get(email = email)
         except:
             return False
+        
+
 
     @staticmethod
     def update_time(email):

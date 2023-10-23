@@ -83,7 +83,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Check Out Form</h5>
+        <h5 class="modal-title" id="exampleModalLabel">結帳</h5>
         <hr />
         <button
           type="button"
@@ -99,7 +99,7 @@
           <form action="{% url 'checkout' %}" method="POST">
             {% csrf_token %}
             <div class="form-group">
-                <label for="">請輸入會員姓名(名字+空格+姓)</label>
+                <label for="">請輸入會員姓名(名字+空格+姓, 例:小明 王)</label>
                 <input
                   type="text"
                   name="address"

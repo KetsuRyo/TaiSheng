@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from .models.products import Product
 from .models.categories import Category
 
+
 # Create your views here.
 def index(request):
     products = None
@@ -17,6 +18,8 @@ def index(request):
         "categories" : categories
     }
     return render(request, "index.html", context)
+
+
 
 
 def signup(request):

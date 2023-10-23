@@ -26,9 +26,9 @@ class Login(View):
                     Login.return_url = None
                     return redirect('index')
             else:
-                error_msg = "Password is incorrect."
+                error_msg = "密碼錯誤"
         else:
-            error_msg = "You are not registered yet."
+            error_msg = "您並未註冊"
         return render(request, "login.html", {'error': error_msg})
 
 
