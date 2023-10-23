@@ -30,7 +30,7 @@ SECRET_KEY = 'Yummyyang0603'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['buynw.herokuapp.com', '127.0.0.1']
+ALLOWED_HOSTS = ['164.92.110.204','www.jackliaomatsuyama.org','127.0.0.1']
 
 
 # Application definition
