@@ -26,4 +26,4 @@ admin.site.register(Category, AdminCategory)
 admin.site.register(Customer, AdminCustomer)
 admin.site.register(Order, AdminOrder)
 
-admin.site.site_header = 'Buy Now Administrations'
+admin.site.site_header = 'Taisheng 管理介面'
